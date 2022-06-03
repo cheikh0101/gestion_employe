@@ -1,0 +1,65 @@
+created:
+    - app/Http/Controllers/StructureController.php
+    - app/Http/Controllers/MembreController.php
+    - app/Http/Controllers/ConjointController.php
+    - app/Http/Controllers/EnfantController.php
+    - app/Http/Controllers/UserController.php
+    - database/factories/StructureFactory.php
+    - database/factories/AdministrateurFactory.php
+    - database/factories/MembreFactory.php
+    - database/factories/ConjointFactory.php
+    - database/factories/EnfantFactory.php
+    - database/migrations/2022_05_28_225358_create_structures_table.php
+    - database/migrations/2022_05_28_225359_create_administrateurs_table.php
+    - database/migrations/2022_05_28_225400_create_membres_table.php
+    - database/migrations/2022_05_28_225401_create_conjoints_table.php
+    - database/migrations/2022_05_28_225402_create_enfants_table.php
+    - app/Models/Structure.php
+    - app/Models/Administrateur.php
+    - app/Models/Membre.php
+    - app/Models/Conjoint.php
+    - app/Models/Enfant.php
+    - tests/Feature/Http/Controllers/StructureControllerTest.php
+    - tests/Feature/Http/Controllers/MembreControllerTest.php
+    - tests/Feature/Http/Controllers/ConjointControllerTest.php
+    - tests/Feature/Http/Controllers/EnfantControllerTest.php
+    - tests/Feature/Http/Controllers/UserControllerTest.php
+    - app/Http/Requests/StructureStoreRequest.php
+    - app/Http/Requests/StructureUpdateRequest.php
+    - app/Http/Requests/MembreStoreRequest.php
+    - app/Http/Requests/MembreUpdateRequest.php
+    - app/Http/Requests/ConjointStoreRequest.php
+    - app/Http/Requests/ConjointUpdateRequest.php
+    - app/Http/Requests/EnfantStoreRequest.php
+    - app/Http/Requests/EnfantUpdateRequest.php
+    - app/Http/Requests/UserStoreRequest.php
+    - app/Http/Requests/UserUpdateRequest.php
+    - resources/views/structure/index.blade.php
+    - resources/views/structure/create.blade.php
+    - resources/views/structure/show.blade.php
+    - resources/views/structure/edit.blade.php
+    - resources/views/membre/index.blade.php
+    - resources/views/membre/create.blade.php
+    - resources/views/membre/show.blade.php
+    - resources/views/membre/edit.blade.php
+    - resources/views/conjoint/index.blade.php
+    - resources/views/conjoint/create.blade.php
+    - resources/views/conjoint/show.blade.php
+    - resources/views/conjoint/edit.blade.php
+    - resources/views/enfant/index.blade.php
+    - resources/views/enfant/create.blade.php
+    - resources/views/enfant/show.blade.php
+    - resources/views/enfant/edit.blade.php
+    - resources/views/user/index.blade.php
+    - resources/views/user/create.blade.php
+    - resources/views/user/show.blade.php
+    - resources/views/user/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    User: {  }
+    Structure: { code: string, nom: string, cigle: 'string nullable', logo: 'string nullable' }
+    Administrateur: { user_id: 'id foreign', structure_id: 'id foreign' }
+    Membre: { nom: string, prenom: string, cni: 'string nullable unique', matricule: 'string nullable unique', lieu_naissance: 'string nullable', date_naissance: 'date nullalbe', telephone: 'string nullable', email: 'string nullable', sexe: 'string nullable', situation_matrimoniale: 'string nullable', structure_id: 'string nullable' }
+    Conjoint: { nom: string, prenom: string, lieu_naissance: 'string nullable', date_naissance: 'date nullalbe', date_mariage: 'date nullalbe', telephone: 'string nullable', membre_id: 'id foreign' }
+    Enfant: { prenom: string, date_naissance: 'date nullalbe', membre: 'id foreign', conjoint: 'id foreign' }

@@ -1,0 +1,54 @@
+models:
+  Structure:
+    code: string
+    nom: string
+    cigle: string nullable
+    logo: string nullable
+
+  Administrateur:
+    user_id: id foreign
+    structure_id: id foreign
+
+  Membre:
+    nom: string
+    prenom: string
+    cni: string nullable unique
+    matricule: string nullable unique
+    lieu_naissance: string nullable
+    date_naissance: date nullalbe
+    telephone: string nullable
+    email: string nullable
+    sexe: string nullable
+    situation_matrimoniale: string nullable
+    structure_id: string nullable
+
+  Conjoint:
+    nom: string
+    prenom: string
+    lieu_naissance: string nullable
+    date_naissance: date nullalbe
+    date_mariage: date nullalbe
+    telephone: string nullable
+    membre_id: id foreign
+
+  Enfant:
+    prenom: string
+    date_naissance: date nullalbe
+    membre_id: id foreign
+    conjoint_id: id foreign
+
+controllers:
+  Structure:
+    resource
+
+  Membre:
+    resource
+
+  Conjoint:
+    resource
+
+  Enfant:
+    resource
+
+  User:
+    resource
