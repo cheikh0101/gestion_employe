@@ -22,7 +22,6 @@ class GestionnaireController extends Controller
     public function index()
     {
         $gestionnaires = Gestionnaire::all();
-        $gestionnaire = Gestionnaire::find(1)->load('user');
         return view('gestionnaire.index', compact('gestionnaires'));
     }
 
@@ -63,6 +62,12 @@ class GestionnaireController extends Controller
         }
     }
 
+    public function edit(Gestionnaire $gestionnaire)
+    {
+        $structures = Structure::all();
+        return view('gestionnaire.edit', compact('gestionnaire', 'structures'));
+    }
+
     /**
      * Display the specified resource.
      *
@@ -83,7 +88,27 @@ class GestionnaireController extends Controller
      */
     public function update(Request $request, Gestionnaire $gestionnaire)
     {
-        //
+        try {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255'],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                'structure_id' => 'required'
+            ]);
+            $user = User::find($gestionnaire->user_id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->update();
+
+            $gestionnaire->user_id = $user->id;
+            $gestionnaire->structure_id = $request->structure_id;
+            $gestionnaire->update();
+
+            return redirect()->route('dashboard.gestionnaire.index');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -94,6 +119,11 @@ class GestionnaireController extends Controller
      */
     public function destroy(Gestionnaire $gestionnaire)
     {
-        //
+        try {
+            $gestionnaire->deleteOrFail();
+            return back();
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }

@@ -12,22 +12,15 @@
 
         <div class="row">
             <div class="col d-flex justify-content-start">
-                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Recherche">
+                <form action=" {{ route('membre.search') }} " method="post">
+                    @csrf
+                    <input type="text" class="form-control" name="motcle" id="" aria-describedby="helpId"
+                        placeholder="Recherche">
+                </form>
             </div>
-            <div class="col">
-                <div class="form-group">
-                    <label for=""></label>
-                    <select class="custom-select" name="" id="">
-                        @foreach ($structures as $structure)
-                            <option>
-                                {{ $structure->nom }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
+
             <div class="col d-flex justify-content-end">
-                <a href=" {{ route('gestionnaire.membre.create') }} " class="btn btn-primary">
+                <a href=" {{ route('dashboard.membre.create') }} " class="btn btn-primary">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     Ajouter un employé
                 </a>
@@ -74,11 +67,11 @@
                                     </th>
 
                                     <td>
-                                        {{ $membre->nom }}
+                                        {{ $membre->prenom }}
                                     </td>
 
                                     <td>
-                                        {{ $membre->prenom }}
+                                        {{ $membre->nom }}
                                     </td>
 
                                     <td>
@@ -86,23 +79,28 @@
                                     </td>
 
                                     <td>
-                                        <a href=" {{ route('gestionnaire.membre.show', compact('membre')) }} "
+                                        <a href=" {{ route('dashboard.membre.show', compact('membre')) }} "
                                             class="btn btn-outline-primary">
                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                         </a>
                                     </td>
 
                                     <td>
-                                        <a href=" {{ route('gestionnaire.membre.edit', compact('membre')) }} "
+                                        <a href=" {{ route('dashboard.membre.edit', compact('membre')) }} "
                                             class="btn btn-outline-warning">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>
 
                                     <td>
-                                        <button type="button" class="btn btn-outline-danger">
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
-                                        </button>
+                                        <form action=" {{ route('dashboard.membre.destroy', compact('membre')) }} "
+                                            method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-outline-danger">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @empty

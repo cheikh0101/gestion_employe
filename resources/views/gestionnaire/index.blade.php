@@ -44,7 +44,7 @@
                                     Structure
                                 </th>
 
-                                <th colspan="3" class="text-center">
+                                <th colspan="2" class="text-center">
                                     Actions
                                 </th>
                             </tr>
@@ -74,13 +74,6 @@
                                     </td>
 
                                     <td>
-                                        <a href=" {{ route('dashboard.gestionnaire.show', compact('gestionnaire')) }} "
-                                            class="btn btn-outline-primary">
-                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                        </a>
-                                    </td>
-
-                                    <td>
                                         <a href=" {{ route('dashboard.gestionnaire.edit', compact('gestionnaire')) }} "
                                             class="btn btn-outline-warning">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -88,9 +81,15 @@
                                     </td>
 
                                     <td>
-                                        <button type="button" class="btn btn-outline-danger">
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
-                                        </button>
+                                        <form
+                                            action=" {{ route('dashboard.gestionnaire.destroy', compact('gestionnaire')) }} "
+                                            method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-outline-danger">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @empty
@@ -119,7 +118,7 @@
                                     Structure
                                 </th>
 
-                                <th colspan="3" class="text-center">
+                                <th colspan="2" class="text-center">
                                     Actions
                                 </th>
                             </tr>

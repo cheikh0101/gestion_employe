@@ -96,4 +96,14 @@ class StructureController extends Controller
 
         return redirect()->route('dashboard.structure.index');
     }
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'motCle' => 'required|min:2'
+        ]);
+        $motCle = $request->motCle;
+        $structures = Structure::where('nom', 'like', '%' . $motCle . '%')->orWhere('code', 'like', '%' . $motCle . '%')->get();
+        return view('structure.index', compact('structures'));
+    }
 }

@@ -90,6 +90,16 @@ class MembreController extends Controller
     {
         $membre->delete();
 
-        return redirect()->route('membre.index');
+        return redirect()->route('dashboard.membre.index');
+    }
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'motcle' => 'required|min:3'
+        ]);
+        $motCle = $request->motcle;
+        $membres = Membre::where('matricule', 'like', '%' . $motCle . '%')->orWhere('prenom', 'like', '%' . $motCle . '%')->get();
+        return view('membre.index', compact('membres'));
     }
 }

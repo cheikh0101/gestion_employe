@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MembreController;
+use App\Http\Controllers\StructureController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +39,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard', 'as' =>
 
     Route::resource('gestionnaire', App\Http\Controllers\GestionnaireController::class);
 });
+
+Route::post('structure/search', [StructureController::class, 'search'])->name('structure.search');
+
+Route::post('membre/search', [MembreController::class, 'search'])->name('membre.search');
 
 Route::fallback(function () {
     return view('auth.login');

@@ -12,7 +12,11 @@
 
         <div class="row">
             <div class="col d-flex justify-content-start">
-                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Recherche">
+                <form action=" {{ route('structure.search') }} " method="post">
+                    @csrf
+                    <input type="text" class="form-control" name="motCle" id="" aria-describedby="helpId"
+                        placeholder="Recherche">
+                </form>
             </div>
             <div class="col d-flex justify-content-end">
                 <a href=" {{ route('dashboard.structure.create') }} " class="btn btn-primary">
