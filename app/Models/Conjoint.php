@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Conjoint extends Model
 {
@@ -39,5 +40,15 @@ class Conjoint extends Model
     public function membre()
     {
         return $this->belongsTo(Membre::class);
+    }
+
+    /**
+     * Get all of the enfants for the Conjoint
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function enfants(): HasMany
+    {
+        return $this->hasMany(Enfant::class);
     }
 }

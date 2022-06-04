@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Membre extends Model
 {
@@ -37,4 +39,34 @@ class Membre extends Model
         'id' => 'integer',
         'date_naissance' => 'date',
     ];
+
+    /**
+     * Get the structure that owns the Membre
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function structure(): BelongsTo
+    {
+        return $this->belongsTo(Structure::class);
+    }
+
+    /**
+     * Get all of the enfants for the Membre
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function enfants(): HasMany
+    {
+        return $this->hasMany(Enfant::class);
+    }
+
+    /**
+     * Get all of the conjoints for the Membre
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function conjoints(): HasMany
+    {
+        return $this->hasMany(Conjoint::class);
+    }
 }

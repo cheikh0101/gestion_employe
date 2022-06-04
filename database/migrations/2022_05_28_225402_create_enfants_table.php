@@ -18,7 +18,6 @@ class CreateEnfantsTable extends Migration
         Schema::create('enfants', function (Blueprint $table) {
             $table->id();
             $table->string('prenom');
-            $table->string('prenom_mere')->nullable();
             $table->date('date_naissance');
             $table->foreignId('membre_id')->constrained();
             $table->foreignId('conjoint_id')->constrained()->nullable();

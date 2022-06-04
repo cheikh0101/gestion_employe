@@ -40,4 +40,14 @@ class Structure extends Model
     {
         return $this->hasMany(Gestionnaire::class);
     }
+
+    /**
+     * Get all of the membres for the Structure
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function membres(): HasMany
+    {
+        return $this->hasMany(Membre::class);
+    }
 }

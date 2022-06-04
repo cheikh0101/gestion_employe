@@ -7,6 +7,7 @@ use App\Http\Requests\MembreUpdateRequest;
 use App\Models\Membre;
 use App\Models\Structure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MembreController extends Controller
 {
@@ -40,10 +41,7 @@ class MembreController extends Controller
         $membre = Membre::create($request->validated());
 
         $request->session()->flash('membre.id', $membre->id);
-
-        $structures = Structure::all();
-        return view('membre.edit', compact('membre', 'structures'));
-        // return redirect()->route('gestionnaire.membre.index');
+        return redirect()->route('dashboard.membre.index');
     }
 
     /**
@@ -72,13 +70,18 @@ class MembreController extends Controller
      * @param \App\Models\Membre $membre
      * @return \Illuminate\Http\Response
      */
-    public function update(MembreUpdateRequest $request, Membre $membre)
+    public function update(Request $request, Membre $membre)
     {
-        $membre->update($request->validated());
+        $validators = Validator::make($request->all(), [
+            'nom' => 'required',
+            'prenom' => 'required'
+        ]);
+
+        $membre->update($request->all());
 
         $request->session()->flash('membre.id', $membre->id);
 
-        return redirect()->route('membre.index');
+        return redirect()->route('dashboard.membre.index');
     }
 
     /**
