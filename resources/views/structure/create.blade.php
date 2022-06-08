@@ -15,15 +15,25 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Nom</label>
-                                        <input type="text" name="nom" id="" class="form-control" placeholder=""
+                                        <input type="text" name="nom" id=""
+                                            class="form-control @error('nom') is-invalid @enderror" placeholder=""
                                             aria-describedby="helpId">
+                                        @error('nom')
+                                            <small id="helpId" class="form-text text-muted"> {{ $errors->first('nom') }}
+                                            </small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Code</label>
-                                        <input type="text" name="code" id="" class="form-control" placeholder=""
+                                        <input type="text" name="code" id=""
+                                            class="form-control @error('code') is-invalid @enderror " placeholder=""
                                             aria-describedby="helpId">
+                                        @error('code')
+                                            <small id="helpId" class="form-text text-muted"> {{ $errors->first('code') }}
+                                            </small>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

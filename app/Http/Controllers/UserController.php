@@ -83,8 +83,11 @@ class UserController extends Controller
      */
     public function destroy(Request $request, User $user)
     {
-        $user->delete();
-
-        return redirect()->route('user.index');
+        try {
+            $user->delete();
+            return redirect()->route('user.index');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }

@@ -91,9 +91,12 @@ class MembreController extends Controller
      */
     public function destroy(Request $request, Membre $membre)
     {
-        $membre->delete();
-
-        return redirect()->route('dashboard.membre.index');
+        try {
+            $membre->delete();
+            return redirect()->route('dashboard.membre.index');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     public function search(Request $request)

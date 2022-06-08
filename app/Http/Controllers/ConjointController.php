@@ -83,8 +83,11 @@ class ConjointController extends Controller
      */
     public function destroy(Request $request, Conjoint $conjoint)
     {
-        $conjoint->delete();
-
-        return redirect()->route('conjoint.index');
+        try {
+            $conjoint->delete();
+            return redirect()->route('conjoint.index');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }

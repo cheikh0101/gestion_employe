@@ -33,8 +33,12 @@ class EnfantController extends Controller
      * @param \App\Http\Requests\EnfantStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EnfantStoreRequest $request)
+    public function store(Request $request)
     {
+        $request->validate([
+            'prenom' => 'required',
+            'date_naissance' => 'required'
+        ]);
         $enfant = Enfant::create($request->validated());
 
         $request->session()->flash('enfant.id', $enfant->id);
@@ -83,8 +87,11 @@ class EnfantController extends Controller
      */
     public function destroy(Request $request, Enfant $enfant)
     {
-        $enfant->delete();
-
-        return redirect()->route('enfant.index');
+        try {
+            $enfant->delete();
+            return redirect()->route('enfant.index');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }

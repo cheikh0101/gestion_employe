@@ -15,15 +15,27 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Nom</label>
-                                        <input type="text" name="nom" id="" class="form-control" placeholder=""
+                                        <input type="text" name="nom" id=""
+                                            class="form-control @error('nom') is-invalid @enderror " placeholder=""
                                             aria-describedby="helpId">
+                                        @error('nom')
+                                            <small id="helpId" class="form-text text-muted">
+                                                {{ $errors->first('nom') }}
+                                            </small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Prenom</label>
-                                        <input type="text" name="prenom" id="" class="form-control" placeholder=""
+                                        <input type="text" name="prenom" id=""
+                                            class="form-control @error('prenom') is-invalid @enderror " placeholder=""
                                             aria-describedby="helpId">
+                                        @error('prenom')
+                                            <small id="helpId" class="form-text text-muted">
+                                                {{ $errors->first('prenom') }}
+                                            </small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col">
@@ -53,8 +65,14 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Date de naissance</label>
-                                        <input type="date" name="date_naissance" id="" class="form-control" placeholder=""
-                                            aria-describedby="helpId">
+                                        <input type="date" name="date_naissance" id=""
+                                            class="form-control @error('date_naissance') is-invalid @enderror "
+                                            placeholder="" aria-describedby="helpId">
+                                        @error('date_naissance')
+                                            <small id="helpId" class="form-text text-muted">
+                                                {{ $errors->first('date_naissance') }}
+                                            </small>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

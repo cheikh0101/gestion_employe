@@ -36,10 +36,11 @@ class StructureController extends Controller
      */
     public function store(Request $request)
     {
-        $validators = Validator::make($request->all(), [
+        $this->validate($request, [
             'nom' => 'required',
-            'code' => 'required',
+            'code' => 'required'
         ]);
+
         $structure = new Structure($request->all());
         $structure->save();
         $request->session()->flash('structure.id', $structure->id);
@@ -92,9 +93,12 @@ class StructureController extends Controller
      */
     public function destroy(Request $request, Structure $structure)
     {
-        $structure->delete();
-
-        return redirect()->route('dashboard.structure.index');
+        try {
+            $structure->delete();
+            return redirect()->route('dashboard.structure.index');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     public function search(Request $request)
