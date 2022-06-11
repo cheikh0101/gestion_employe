@@ -2,7 +2,12 @@
 
 use App\Http\Controllers\MembreController;
 use App\Http\Controllers\StructureController;
+use App\Models\Gestionnaire;
+use App\Models\Membre;
+use App\Models\Structure;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +25,11 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $administrateurs = User::where('is_admin', true)->count();
+    $gestionnaires = Gestionnaire::all()->count();
+    $structures = Structure::all()->count();
+    $membres = Membre::all()->count();
+    return view('dashboard', compact('administrateurs', 'gestionnaires', 'structures', 'membres'));
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
@@ -38,11 +47,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard', 'as' =>
     Route::resource('user', App\Http\Controllers\UserController::class);
 
     Route::resource('gestionnaire', App\Http\Controllers\GestionnaireController::class);
+
+    Route::post('structure/search', [StructureController::class, 'search'])->name('structure.search');
+
+    Route::post('membre/search', [MembreController::class, 'search'])->name('membre.search');
 });
-
-Route::post('structure/search', [StructureController::class, 'search'])->name('structure.search');
-
-Route::post('membre/search', [MembreController::class, 'search'])->name('membre.search');
 
 Route::fallback(function () {
     return view('auth.login');

@@ -12,7 +12,7 @@
 
         <div class="row">
             <div class="col d-flex justify-content-start">
-                <form action=" {{ route('structure.search') }} " method="post">
+                <form action=" {{ route('dashboard.structure.search') }} " method="post">
                     @csrf
                     <input type="text" class="form-control" name="motCle" id="" aria-describedby="helpId"
                         placeholder="Recherche">

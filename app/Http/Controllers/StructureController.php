@@ -40,11 +40,9 @@ class StructureController extends Controller
             'nom' => 'required',
             'code' => 'required'
         ]);
-
         $structure = new Structure($request->all());
         $structure->save();
         $request->session()->flash('structure.id', $structure->id);
-
         return redirect()->route('dashboard.structure.index');
     }
 
@@ -98,6 +96,7 @@ class StructureController extends Controller
             return redirect()->route('dashboard.structure.index');
         } catch (\Throwable $th) {
             //throw $th;
+            return back();
         }
     }
 

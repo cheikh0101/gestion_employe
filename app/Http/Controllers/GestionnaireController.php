@@ -121,9 +121,12 @@ class GestionnaireController extends Controller
     {
         try {
             $gestionnaire->deleteOrFail();
+            $user = User::find($gestionnaire->user_id);
+            $user->deleteOrFail();
             return back();
         } catch (\Throwable $th) {
             //throw $th;
+            return back();
         }
     }
 }
