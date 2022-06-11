@@ -61,7 +61,7 @@
                                         {{ $id++ }}
                                     </th>
 
-                                    <td>
+                                    <td class="text-primary">
                                         {{ $gestionnaire->user->name }}
                                     </td>
 
@@ -124,6 +124,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                    {{ $gestionnaires->links() }}
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@ class StructureController extends Controller
      */
     public function index(Request $request)
     {
-        $structures = Structure::all();
+        $structures = Structure::simplePaginate(5);
 
         return view('structure.index', compact('structures'));
     }

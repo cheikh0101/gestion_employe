@@ -73,7 +73,7 @@
                                         {{ $structure->logo }}
                                     </td>
 
-                                    <td>
+                                    <td class="text-primary">
                                         {{ $structure->nom }}
                                     </td>
 
@@ -139,6 +139,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                    {{ $structures->links() }}
                 </div>
             </div>
         </div>

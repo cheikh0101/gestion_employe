@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gestionnaire;
 use App\Models\Structure;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
@@ -21,7 +19,7 @@ class GestionnaireController extends Controller
      */
     public function index()
     {
-        $gestionnaires = Gestionnaire::all();
+        $gestionnaires = Gestionnaire::simplePaginate(5);
         return view('gestionnaire.index', compact('gestionnaires'));
     }
 

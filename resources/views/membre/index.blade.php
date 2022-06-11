@@ -66,7 +66,7 @@
                                         {{ $id++ }}
                                     </th>
 
-                                    <td>
+                                    <td class="text-primary">
                                         {{ $membre->prenom }}
                                     </td>
 
@@ -135,6 +135,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                    {{ $membres->links() }}
                 </div>
             </div>
         </div>

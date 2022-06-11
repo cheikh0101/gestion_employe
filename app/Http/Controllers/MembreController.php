@@ -17,7 +17,7 @@ class MembreController extends Controller
      */
     public function index(Request $request)
     {
-        $membres = Membre::all();
+        $membres = Membre::simplePaginate(10);
         $structures = Structure::all();
         return view('membre.index', compact('membres', 'structures'));
     }
