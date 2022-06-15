@@ -7,6 +7,7 @@ use App\Http\Requests\StructureUpdateRequest;
 use App\Models\Structure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Livewire\Component;
 
 class StructureController extends Controller
 {
@@ -16,8 +17,13 @@ class StructureController extends Controller
      */
     public function index(Request $request)
     {
-        $structures = Structure::simplePaginate(5);
-
+        if (auth()->user()->is_admin) {
+            $structures = Structure::simplePaginate(5);
+        } else {
+            $structures = Structure::whereRelation('gestionnaires', function ($query) {
+                $query->where('user_id', auth()->user()->id);
+            })->simplePaginate(5);
+        }
         return view('structure.index', compact('structures'));
     }
 
@@ -42,7 +48,7 @@ class StructureController extends Controller
         ]);
         $structure = new Structure($request->all());
         $structure->save();
-        $request->session()->flash('structure.id', $structure->id);
+        // $request->session()->flash('structure.id', $structure->id);
         return redirect()->route('dashboard.structure.index');
     }
 
@@ -95,7 +101,7 @@ class StructureController extends Controller
             $structure->delete();
             return redirect()->route('dashboard.structure.index');
         } catch (\Throwable $th) {
-            //throw $th;
+            throw $th;
             return back();
         }
     }

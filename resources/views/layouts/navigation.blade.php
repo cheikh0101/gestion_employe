@@ -20,9 +20,11 @@
                         {{ __('Structures') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard.gestionnaire.index')" :active="request()->routeIs('dashboard.gestionnaire.index')">
-                        {{ __('Gestionnaires') }}
-                    </x-nav-link>
+                    @if (auth()->user()->is_admin)
+                        <x-nav-link :href="route('dashboard.gestionnaire.index')" :active="request()->routeIs('dashboard.gestionnaire.index')">
+                            {{ __('Gestionnaires') }}
+                        </x-nav-link>
+                    @endif
 
                     <x-nav-link :href="route('dashboard.membre.index')" :active="request()->routeIs('dashboard.membre.index')">
                         {{ __('Employés') }}
