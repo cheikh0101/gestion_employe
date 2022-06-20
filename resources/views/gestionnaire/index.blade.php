@@ -5,7 +5,7 @@
         <div class="row mt-5">
             <div class="col">
                 <h3>
-                    Liste de mes gestionnaires
+                    Liste des gestionnaires ({{ count($gestionnaires) }})
                 </h3>
             </div>
         </div>

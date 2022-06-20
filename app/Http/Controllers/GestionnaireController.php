@@ -49,11 +49,6 @@ class GestionnaireController extends Controller
                 'password' => Hash::make($request->password),
             ]);
 
-            $gestionnaire = Gestionnaire::create([
-                'user_id' => $user->id,
-                'structure_id' => $request->structure_id
-            ]);
-
             return redirect()->route('dashboard.gestionnaire.index');
         } catch (\Throwable $th) {
             throw $th;
@@ -62,8 +57,7 @@ class GestionnaireController extends Controller
 
     public function edit(Gestionnaire $gestionnaire)
     {
-        $structures = Structure::all();
-        return view('gestionnaire.edit', compact('gestionnaire', 'structures'));
+        return view('gestionnaire.edit', compact('gestionnaire'));
     }
 
     /**

@@ -5,7 +5,7 @@
         <div class="row mt-5">
             <div class="col">
                 <h3>
-                    Liste des structures
+                    Liste des structures ({{ count($structures) }})
                 </h3>
             </div>
         </div>
