@@ -41,7 +41,7 @@ class MembreController extends Controller
         $membre = Membre::create($request->validated());
 
         $request->session()->flash('membre.id', $membre->id);
-        return redirect()->route('dashboard.membre.index');
+        return redirect()->route('admin.membre.index');
     }
 
     /**
@@ -81,7 +81,7 @@ class MembreController extends Controller
 
         $request->session()->flash('membre.id', $membre->id);
 
-        return redirect()->route('dashboard.membre.index');
+        return redirect()->route('admin.membre.index');
     }
 
     /**
@@ -93,7 +93,7 @@ class MembreController extends Controller
     {
         try {
             $membre->delete();
-            return redirect()->route('dashboard.membre.index');
+            return redirect()->route('admin.membre.index');
         } catch (\Throwable $th) {
             //throw $th;
         }

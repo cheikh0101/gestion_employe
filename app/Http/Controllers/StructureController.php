@@ -48,8 +48,8 @@ class StructureController extends Controller
         ]);
         $structure = new Structure($request->all());
         $structure->save();
-        // $request->session()->flash('structure.id', $structure->id);
-        return redirect()->route('dashboard.structure.index');
+        $request->session()->flash('structure.id', $structure->id);
+        return redirect()->route('admin.structure.index');
     }
 
     /**
@@ -87,7 +87,7 @@ class StructureController extends Controller
 
         $request->session()->flash('structure.id', $structure->id);
 
-        return redirect()->route('dashboard.structure.index');
+        return redirect()->route('admin.structure.index');
     }
 
     /**
@@ -99,7 +99,7 @@ class StructureController extends Controller
     {
         try {
             $structure->delete();
-            return redirect()->route('dashboard.structure.index');
+            return redirect()->route('admin.structure.index');
         } catch (\Throwable $th) {
             throw $th;
             return back();

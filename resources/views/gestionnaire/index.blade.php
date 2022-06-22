@@ -40,11 +40,6 @@
                                 <th>
                                     Email
                                 </th>
-
-                                <th>
-                                    Structure
-                                </th>
-
                                 <th colspan="2" class="text-center">
                                     Actions
                                 </th>
@@ -68,10 +63,6 @@
 
                                     <td>
                                         {{ $gestionnaire->user->email }}
-                                    </td>
-
-                                    <td>
-                                        {{ $gestionnaire->structure->nom }}
                                     </td>
 
                                     <td>
@@ -113,10 +104,6 @@
 
                                 <th>
                                     Email
-                                </th>
-
-                                <th>
-                                    Structure
                                 </th>
 
                                 <th colspan="2" class="text-center">

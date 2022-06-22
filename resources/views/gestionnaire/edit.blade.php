@@ -48,19 +48,6 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-5 mb-5">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="">Structure</label>
-                                        <select class="form-control" name="structure_id" id="">
-                                            @foreach ($structures as $structure)
-                                                <option value=" {{ $structure->id }} "> {{ $structure->nom }} </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="row mt-3">
                                 <div class="col">
                                     <button type="submit" class="btn btn-outline-primary btn-block">

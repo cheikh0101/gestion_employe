@@ -49,7 +49,7 @@ class GestionnaireController extends Controller
                 'password' => Hash::make($request->password),
             ]);
 
-            return redirect()->route('dashboard.gestionnaire.index');
+            return redirect()->route('admin.gestionnaire.index');
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -97,7 +97,7 @@ class GestionnaireController extends Controller
             $gestionnaire->structure_id = $request->structure_id;
             $gestionnaire->update();
 
-            return redirect()->route('dashboard.gestionnaire.index');
+            return redirect()->route('admin.gestionnaire.index');
         } catch (\Throwable $th) {
             throw $th;
         }
