@@ -105,7 +105,7 @@ class MembreController extends Controller
             'motcle' => 'required|min:3'
         ]);
         $motCle = $request->motcle;
-        $membres = Membre::where('matricule', 'like', '%' . $motCle . '%')->orWhere('prenom', 'like', '%' . $motCle . '%')->get();
+        $membres = Membre::where('matricule', 'like', '%' . $motCle . '%')->orWhere('prenom', 'like', '%' . $motCle . '%')->simplePaginate(10);
         return view('membre.index', compact('membres'));
     }
 }

@@ -112,7 +112,7 @@ class StructureController extends Controller
             'motCle' => 'required|min:2'
         ]);
         $motCle = $request->motCle;
-        $structures = Structure::where('nom', 'like', '%' . $motCle . '%')->orWhere('code', 'like', '%' . $motCle . '%')->get();
+        $structures = Structure::where('nom', 'like', '%' . $motCle . '%')->orWhere('code', 'like', '%' . $motCle . '%')->simplePaginate(5);
         return view('structure.index', compact('structures'));
     }
 }

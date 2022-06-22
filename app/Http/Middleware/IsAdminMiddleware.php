@@ -17,7 +17,7 @@ class IsAdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (!auth()->check() || !auth()->user()->is_admin) {
-            # code...
+            return view('auth.login');
         }
         return $next($request);
     }

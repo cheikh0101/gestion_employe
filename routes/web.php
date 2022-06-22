@@ -34,23 +34,43 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard', 'as' =>
-'dashboard.'], function () {
-    Route::resource('structure', App\Http\Controllers\StructureController::class);
+Route::group(['middleware' => 'auth'], function () {
 
-    Route::resource('membre', App\Http\Controllers\MembreController::class);
+    Route::group(['middleware' => 'is_admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+        Route::resource('structure', App\Http\Controllers\StructureController::class);
 
-    Route::resource('conjoint', App\Http\Controllers\ConjointController::class);
+        Route::resource('membre', App\Http\Controllers\MembreController::class);
 
-    Route::resource('enfant', App\Http\Controllers\EnfantController::class);
+        Route::resource('conjoint', App\Http\Controllers\ConjointController::class);
 
-    Route::resource('user', App\Http\Controllers\UserController::class);
+        Route::resource('enfant', App\Http\Controllers\EnfantController::class);
 
-    Route::resource('gestionnaire', App\Http\Controllers\GestionnaireController::class);
+        Route::resource('user', App\Http\Controllers\UserController::class);
 
-    Route::post('structure/search', [StructureController::class, 'search'])->name('structure.search');
+        Route::resource('gestionnaire', App\Http\Controllers\GestionnaireController::class);
 
-    Route::post('membre/search', [MembreController::class, 'search'])->name('membre.search');
+        Route::post('structure/search', [StructureController::class, 'search'])->name('structure.search');
+
+        Route::post('membre/search', [MembreController::class, 'search'])->name('membre.search');
+    });
+
+    // Route::group(['prefix' => 'gestionnaire', 'as' => 'gestionnaire.'], function () {
+    //     Route::resource('structure', App\Http\Controllers\StructureController::class);
+
+    //     Route::resource('membre', App\Http\Controllers\MembreController::class);
+
+    //     Route::resource('conjoint', App\Http\Controllers\ConjointController::class);
+
+    //     Route::resource('enfant', App\Http\Controllers\EnfantController::class);
+
+    //     Route::resource('user', App\Http\Controllers\UserController::class);
+
+    //     Route::resource('gestionnaire', App\Http\Controllers\GestionnaireController::class);
+
+    //     Route::post('structure/search', [StructureController::class, 'search'])->name('structure.search');
+
+    //     Route::post('membre/search', [MembreController::class, 'search'])->name('membre.search');
+    // });
 });
 
 Route::fallback(function () {
