@@ -9,7 +9,7 @@
                         Nouveau Employé
                     </div>
                     <div class="card-body">
-                        <form action=" {{ route('dashboard.membre.store') }} " method="post">
+                        <form action=" {{ route('admin.membre.store') }} " method="post">
                             @csrf
                             <div class="row mt-5">
                                 <div class="col">
@@ -41,8 +41,8 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">CNI</label>
-                                        <input type="number" name="cni" id="" class="form-control" placeholder=""
-                                            aria-describedby="helpId">
+                                        <input type="number" name="cni" id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                             </div>
@@ -51,15 +51,15 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Matricule</label>
-                                        <input type="text" name="matricule" id="" class="form-control" placeholder=""
-                                            aria-describedby="helpId">
+                                        <input type="text" name="matricule" id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Lieu de Naissance</label>
-                                        <input type="text" name="lieu_naissance" id="" class="form-control" placeholder=""
-                                            aria-describedby="helpId">
+                                        <input type="text" name="lieu_naissance" id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -81,15 +81,15 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Téléphone</label>
-                                        <input type="number" name="telephone" id="" class="form-control" placeholder=""
-                                            aria-describedby="helpId">
+                                        <input type="number" name="telephone" id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Email</label>
-                                        <input type="email" name="email" id="" class="form-control" placeholder=""
-                                            aria-describedby="helpId">
+                                        <input type="email" name="email" id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                                 <div class="col">

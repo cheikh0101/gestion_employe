@@ -12,7 +12,7 @@
 
         <div class="row">
             <div class="col d-flex justify-content-start">
-                <form action=" {{ route('dashboard.membre.search') }} " method="post">
+                <form action=" {{ route('admin.membre.search') }} " method="post">
                     @csrf
                     <input type="text" class="form-control" name="motcle" id="" aria-describedby="helpId"
                         placeholder="Recherche">
@@ -20,7 +20,7 @@
             </div>
 
             <div class="col d-flex justify-content-end">
-                <a href=" {{ route('dashboard.membre.create') }} " class="btn btn-primary">
+                <a href=" {{ route('admin.membre.create') }} " class="btn btn-primary">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     Ajouter un employé
                 </a>
@@ -79,21 +79,21 @@
                                     </td>
 
                                     <td>
-                                        <a href=" {{ route('dashboard.membre.show', compact('membre')) }} "
+                                        <a href=" {{ route('admin.membre.show', compact('membre')) }} "
                                             class="btn btn-outline-primary">
                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                         </a>
                                     </td>
 
                                     <td>
-                                        <a href=" {{ route('dashboard.membre.edit', compact('membre')) }} "
+                                        <a href=" {{ route('admin.membre.edit', compact('membre')) }} "
                                             class="btn btn-outline-warning">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>
 
                                     <td>
-                                        <form action=" {{ route('dashboard.membre.destroy', compact('membre')) }} "
+                                        <form action=" {{ route('admin.membre.destroy', compact('membre')) }} "
                                             method="post">
                                             @csrf
                                             @method('delete')

@@ -12,14 +12,14 @@
 
         <div class="row">
             <div class="col d-flex justify-content-start">
-                <form action=" {{ route('dashboard.structure.search') }} " method="post">
+                <form action=" {{ route('admin.structure.search') }} " method="post">
                     @csrf
                     <input type="text" class="form-control" name="motCle" id="" aria-describedby="helpId"
                         placeholder="Recherche">
                 </form>
             </div>
             <div class="col d-flex justify-content-end">
-                <a href=" {{ route('dashboard.structure.create') }} " class="btn btn-primary">
+                <a href=" {{ route('admin.structure.create') }} " class="btn btn-primary">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     Ajouter une structure
                 </a>
@@ -86,14 +86,14 @@
                                     </td>
 
                                     <td>
-                                        <a href=" {{ route('dashboard.structure.edit', compact('structure')) }} "
+                                        <a href=" {{ route('admin.structure.edit', compact('structure')) }} "
                                             class="btn btn-outline-warning">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>
 
                                     <td>
-                                        <form action=" {{ route('dashboard.structure.destroy', compact('structure')) }} "
+                                        <form action=" {{ route('admin.structure.destroy', compact('structure')) }} "
                                             method="post">
                                             @csrf
                                             @method('delete')

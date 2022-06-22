@@ -9,7 +9,7 @@
                         Nouveau enfant
                     </div>
                     <div class="card-body">
-                        <form action=" {{ route('dashboard.enfant.store') }} " method="post">
+                        <form action=" {{ route('admin.enfant.store') }} " method="post">
                             @csrf
                             <div class="row mt-5">
                                 <div class="col">

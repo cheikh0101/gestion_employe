@@ -18,7 +18,7 @@
                                 <div class="col">
                                     <div class="card">
                                         <div class="card-body">
-                                            <p class="card-text">Prenom: {{ $membre->prenom }}</p>
+                                            <p class="card-text">Prénom: {{ $membre->prenom }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                     <div class="accordion-body">
                         <div class="row mt-2">
                             <div class="col d-flex justify-content-end">
-                                <a href=" {{ route('dashboard.enfant.create') }} " class="btn btn-primary">
+                                <a href=" {{ route('admin.enfant.create') }} " class="btn btn-primary">
                                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                                     Ajouter un enfant
                                 </a>
@@ -228,7 +228,7 @@
                     <div class="accordion-body">
                         <div class="row mt-2">
                             <div class="col d-flex justify-content-end">
-                                <a href=" {{ route('dashboard.conjoint.create') }} " class="btn btn-primary">
+                                <a href=" {{ route('admin.conjoint.create') }} " class="btn btn-primary">
                                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                                     Ajouter
                                 </a>

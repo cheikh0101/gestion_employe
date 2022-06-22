@@ -12,10 +12,11 @@
 
         <div class="row">
             <div class="col d-flex justify-content-start">
-                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Recherche">
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                    placeholder="Recherche">
             </div>
             <div class="col d-flex justify-content-end">
-                <a href=" {{ route('dashboard.gestionnaire.create') }} " class="btn btn-primary">
+                <a href=" {{ route('admin.gestionnaire.create') }} " class="btn btn-primary">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     Ajouter un gestionnaire
                 </a>
@@ -74,7 +75,7 @@
                                     </td>
 
                                     <td>
-                                        <a href=" {{ route('dashboard.gestionnaire.edit', compact('gestionnaire')) }} "
+                                        <a href=" {{ route('admin.gestionnaire.edit', compact('gestionnaire')) }} "
                                             class="btn btn-outline-warning">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
@@ -82,7 +83,7 @@
 
                                     <td>
                                         <form
-                                            action=" {{ route('dashboard.gestionnaire.destroy', compact('gestionnaire')) }} "
+                                            action=" {{ route('admin.gestionnaire.destroy', compact('gestionnaire')) }} "
                                             method="post">
                                             @csrf
                                             @method('delete')

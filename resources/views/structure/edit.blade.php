@@ -9,7 +9,7 @@
                         Editer Structure
                     </div>
                     <div class="card-body">
-                        <form action=" {{ route('dashboard.structure.update', compact('structure')) }} " method="post">
+                        <form action=" {{ route('admin.structure.update', compact('structure')) }} " method="post">
                             @csrf
                             @method('put')
                             <div class="row mt-5">
@@ -40,8 +40,8 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Logo</label>
-                                        <input type="file" name="logo" id="" class="form-control" placeholder=""
-                                            aria-describedby="helpId">
+                                        <input type="file" name="logo" id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                             </div>

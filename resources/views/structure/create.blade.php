@@ -9,7 +9,7 @@
                         Nouvelle Structure
                     </div>
                     <div class="card-body">
-                        <form action=" {{ route('dashboard.structure.store') }} " method="post">
+                        <form action=" {{ route('admin.structure.store') }} " method="post">
                             @csrf
                             <div class="row mt-5">
                                 <div class="col">
@@ -42,15 +42,15 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Cigle</label>
-                                        <input type="text" name="cigle" id="" class="form-control" placeholder=""
-                                            aria-describedby="helpId">
+                                        <input type="text" name="cigle" id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Logo</label>
-                                        <input type="file" name="logo" id="" class="form-control" placeholder=""
-                                            aria-describedby="helpId">
+                                        <input type="file" name="logo" id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                             </div>

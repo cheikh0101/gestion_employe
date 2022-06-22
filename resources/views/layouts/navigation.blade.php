@@ -19,16 +19,16 @@
                     @endif
 
                     @if (auth()->user()->is_admin)
-                        <x-nav-link :href="route('dashboard.gestionnaire.index')" :active="request()->routeIs('dashboard.gestionnaire.index')">
+                        <x-nav-link :href="route('admin.gestionnaire.index')" :active="request()->routeIs('admin.gestionnaire.index')">
                             {{ __('Gestionnaires') }}
                         </x-nav-link>
                     @endif
 
-                    <x-nav-link :href="route('dashboard.structure.index')" :active="request()->routeIs('dashboard.structure.index')">
+                    <x-nav-link :href="route('admin.structure.index')" :active="request()->routeIs('admin.structure.index')">
                         {{ __('Structures') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard.membre.index')" :active="request()->routeIs('dashboard.membre.index')">
+                    <x-nav-link :href="route('admin.membre.index')" :active="request()->routeIs('admin.membre.index')">
                         {{ __('Employés') }}
                     </x-nav-link>
                 </div>

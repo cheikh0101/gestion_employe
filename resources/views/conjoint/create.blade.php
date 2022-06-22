@@ -9,7 +9,7 @@
                         Nouveau conjoint
                     </div>
                     <div class="card-body">
-                        <form action=" {{ route('dashboard.conjoint.create') }} " method="post">
+                        <form action=" {{ route('admin.conjoint.create') }} " method="post">
                             @csrf
                             <div class="row mt-5">
                                 <div class="col">
@@ -56,8 +56,8 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Lieu de Naissance</label>
-                                        <input type="text" name="lieu_naissance" id="" class="form-control" placeholder=""
-                                            aria-describedby="helpId">
+                                        <input type="text" name="lieu_naissance" id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -76,8 +76,8 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Téléphone</label>
-                                        <input type="number" name="telephone" id="" class="form-control" placeholder=""
-                                            aria-describedby="helpId">
+                                        <input type="number" name="telephone" id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                             </div>

@@ -14,7 +14,7 @@
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                     data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        <form action=" {{ route('dashboard.membre.update', compact('membre')) }} " method="post">
+                        <form action=" {{ route('admin.membre.update', compact('membre')) }} " method="post">
                             @csrf
                             @method('put')
                             <div class="row mt-5">
@@ -27,9 +27,9 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="">Prenom</label>
-                                        <input type="text" name="prenom" value=" {{ $membre->prenom }} " id=""
-                                            class="form-control" placeholder="" aria-describedby="helpId">
+                                        <label for="">Prènom</label>
+                                        <input type="text" name="prenom" value=" {{ $membre->prenom }} "
+                                            id="" class="form-control" placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -45,22 +45,24 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Matricule</label>
-                                        <input type="text" name="matricule" value=" {{ $membre->matricule }} " id=""
-                                            class="form-control" placeholder="" aria-describedby="helpId">
+                                        <input type="text" name="matricule" value=" {{ $membre->matricule }} "
+                                            id="" class="form-control" placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Lieu de Naissance</label>
-                                        <input type="text" name="lieu_naissance" value=" {{ $membre->lieu_naissance }} "
-                                            id="" class="form-control" placeholder="" aria-describedby="helpId">
+                                        <input type="text" name="lieu_naissance"
+                                            value=" {{ $membre->lieu_naissance }} " id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Date de naissance</label>
-                                        <input type="date" name="date_naissance" value=" {{ $membre->date_naissance }} "
-                                            id="" class="form-control" placeholder="" aria-describedby="helpId">
+                                        <input type="date" name="date_naissance"
+                                            value=" {{ $membre->date_naissance }} " id="" class="form-control"
+                                            placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                             </div>
@@ -69,8 +71,8 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="">Téléphone</label>
-                                        <input type="number" name="telephone" value=" {{ $membre->telephone }} " id=""
-                                            class="form-control" placeholder="" aria-describedby="helpId">
+                                        <input type="number" name="telephone" value=" {{ $membre->telephone }} "
+                                            id="" class="form-control" placeholder="" aria-describedby="helpId">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -97,7 +99,8 @@
                                         <label for="">Structure</label>
                                         <select class="form-control" name="structure_id" id="">
                                             @foreach ($structures as $structure)
-                                                <option value=" {{ $structure->id }} "> {{ $structure->nom }} </option>
+                                                <option value=" {{ $structure->id }} "> {{ $structure->nom }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>

@@ -9,7 +9,7 @@
                         Nouveau Gestionnaire
                     </div>
                     <div class="card-body">
-                        <form action=" {{ route('dashboard.gestionnaire.store') }} " method="post">
+                        <form action=" {{ route('admin.gestionnaire.store') }} " method="post">
                             @csrf
                             <div class="row mt-5">
                                 <div class="col">
@@ -46,7 +46,8 @@
                                             class="form-control @error('password') is-invalid @enderror " placeholder=""
                                             aria-describedby="helpId">
                                         @error('password')
-                                            <small id="helpId" class="form-text text-muted"> {{ $errors->first('password') }}
+                                            <small id="helpId" class="form-text text-muted">
+                                                {{ $errors->first('password') }}
                                             </small>
                                         @enderror
                                     </div>
