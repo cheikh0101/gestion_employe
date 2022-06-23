@@ -52,7 +52,7 @@
                                     Cigle
                                 </th>
 
-                                <th colspan="2" class="text-center">
+                                <th colspan="3" class="text-center">
                                     Actions
                                 </th>
                             </tr>
@@ -83,6 +83,13 @@
 
                                     <td>
                                         {{ $structure->cigle }}
+                                    </td>
+
+                                    <td>
+                                        <a href=" {{ route('admin.structure.show', compact('structure')) }} "
+                                            class="btn btn-outline-primary">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </a>
                                     </td>
 
                                     <td>
@@ -133,7 +140,7 @@
                                     Cigle
                                 </th>
 
-                                <th colspan="2" class="text-center">
+                                <th colspan="3" class="text-center">
                                     Actions
                                 </th>
                             </tr>
